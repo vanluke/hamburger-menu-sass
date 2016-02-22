@@ -1,0 +1,141 @@
+body {
+  background: #e50404;
+}
+
+@keyframes showNav {
+  0% {
+    width: 10px;
+  }
+  20% {
+    width: 50px;
+  }
+  40% {
+    width: 100px;
+  }
+  60% {
+    width: 190px;
+  }
+  80% {
+    width: 220px;
+  }
+  100% {
+    width: 300px;
+  }
+}
+#navigation {
+  position: fixed;
+  display: block;
+  animation: showNav 250ms ease-in-out both;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 1;
+  width: 300px;
+  heigth: 100%;
+  margin-bottom: -5000px;
+  padding-bottom: 5000px;
+}
+#navigation.hide {
+  display: none;
+  margin-left: -300px;
+}
+#navigation ul {
+  position: relative;
+  list-style: none;
+  display: inline;
+  top: 100px;
+  margin: 0 auto;
+}
+#navigation ul li {
+  color: #fff;
+  text-align: center;
+  transition: all 1s ease-in-out;
+  padding: 10px;
+}
+#navigation ul li:hover {
+  background: #fff;
+  transform: background #fff;
+}
+#navigation ul li a {
+  color: #fff;
+  font-size: 34px;
+  text-decoration: none;
+}
+#navigation ul li a:hover {
+  color: #e50404;
+}
+
+.menu {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 96px;
+  height: 96px;
+  font-size: 0;
+  text-indent: -9999px;
+  background-color: transparent;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  background: transpanent;
+  outline: none;
+  background-repeat: no-repeat;
+  transition: background 0.3s;
+  z-index: 2;
+}
+.menu:focus {
+  outline: none;
+}
+.menu span {
+  display: block;
+  position: absolute;
+  top: 44px;
+  left: 18px;
+  right: 18px;
+  height: 8px;
+  background: #fff;
+}
+.menu span::after, .menu span::before {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #fff;
+  content: "";
+}
+.menu span::after {
+  bottom: -20px;
+}
+.menu span::before {
+  top: -20px;
+}
+.menu.menu-hamburger-red span {
+  transition: transform 0.3s;
+}
+.menu.menu-hamburger-red span::before {
+  transform-origin: top left;
+  transition: transform 0.3s, width 0.3s, top 0.3s;
+}
+.menu.menu-hamburger-red span::after {
+  transform-origin: bottom left;
+  transition: transform 0.3s, width 0.3s, bottom 0.3s;
+}
+.menu.menu-hamburger-red.is-active span {
+  transform: rotate(180deg);
+}
+.menu.menu-hamburger-red.is-active span::before, .menu.menu-hamburger-red.is-active span::after {
+  width: 50%;
+}
+.menu.menu-hamburger-red.is-active span::before {
+  top: 0;
+  transform: translateX(-8px) translateY(4px) rotate(-45deg);
+}
+.menu.menu-hamburger-red.is-active span::after {
+  bottom: 0;
+  transform: translateX(-8px) translateY(-4px) rotate(45deg);
+}
